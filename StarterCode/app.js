@@ -1,13 +1,28 @@
-var samples_json;
+// select dropdown menu from html
+var dropdownMenu = d3.select('#selDataset')
 
-function optionChanged(subjectID) {
-    console.log(subjectID)
-}
+// select demographic info display from html
+var demographicTable = d3.select('#sample-metadata')
+
+// select bar chart from html
+var barChart = d3.select('#bar')
+
+// select bubble chart from html
+var bubbleChart = d3.select('#bubble')
+
+// function optionChanged(subjectID) {
+//     console.log(subjectID)
+// }
 
 function init() {
-    var dropdownMenu = d3.select('#selDataset');
+
+    // use d3 library to read json file
     d3.json("samples.json").then(function(data) {
-        data.names
+        data.names.forEach((name => {
+            var option = dropdownMenu.append('option');
+            option.text(name)
+        }));
+
         /* loop through the names using for each data.names, 
         then selector.append(dropdown menu)a new option.where 
         text is subject id and property value is subject id
@@ -15,16 +30,15 @@ function init() {
         to populate demographics table add a filter statement 
         to filter the samples */
     })
-    buildMetadata(data.names[0])
-    console.log(samples_json)
+        var initID = dropdownMenu.property('value')
+
+        // plot the charts
+        plotCharts(initID)
 }
 
-console.log(samples_json)
 
-/* <select id="selDataset" onchange="optionChanged(this.value)"></select> */
 
-function buildMetadata(subjectID) {
-    d3.filter
-}
+
+
 
 init();
