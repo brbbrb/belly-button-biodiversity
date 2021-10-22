@@ -75,9 +75,9 @@ function plotAllCharts(chosenDropdownMenu) {
 
     // trace1 for bar chart
     let trace1 = {
-        x: {otu_ids},
-        y: {sample_values},
-        text: {otu_labels},
+        x: otu_ids,
+        y: sample_values,
+        text: otu_labels,
         name: "Test 123",
         type: "bar",
         orientation: "h",
@@ -98,7 +98,7 @@ let layout = {
 
     Plotly.newPlot("bar", traceData, layout);
 
-}
+};
 
 
 /* loop through the names using for each data.names, 
