@@ -23,11 +23,11 @@ var allTheData;
 var chosenID;
 
 // define reset data function
-function resetData(){
-    demographicTable.html("");
-    barChart.html("");
-    bubbleChart.html("");
-}
+// function resetData(){
+//     demographicTable.html("");
+//     barChart.html("");
+//     bubbleChart.html("");
+// }
 
 // initialize page
 function init() {
@@ -52,7 +52,9 @@ function plotAllCharts(chosenDropdownMenu) {
     console.log(chosenDropdownMenu);
     chosenID = chosenDropdownMenu;
     
-    // BAR CHART 
+    ///////////////
+    // BAR CHART //
+    ///////////////
 
     // link to data based on chosenID
     var chosenID_metadata = allTheData.metadata.filter(metadata => metadata.id == chosenID);
@@ -60,9 +62,11 @@ function plotAllCharts(chosenDropdownMenu) {
 
 
     // store data from chosenID sample's top 10 values
-    var otu_ids = chosenID_samples[0].otu_ids.slice(0,10);
-    var sample_values = chosenID_samples[0].sample_values.slice(0,10);
-    var otu_labels = chosenID_samples[0].otu_labels.slice(0,10);
+    var otu_ids = chosenID_samples[0].otu_ids.slice(0,10).reverse();
+    var sample_values = chosenID_samples[0].sample_values.slice(0,10).reverse();
+    var otu_labels = chosenID_samples[0].otu_labels.slice(0,10).reverse();
+
+    var otu_ids_Formatted = otu_ids.map(otuID => "OTU " + otuID + " ");
 
     // testing
     console.log(chosenID_metadata);
@@ -73,32 +77,36 @@ function plotAllCharts(chosenDropdownMenu) {
     console.log(sample_values);
     console.log(otu_labels);
 
+    console.log(otu_ids_Formatted);
+
+    // console.log(Object.values(otu_ids));
+
     // trace1 for bar chart
-    let trace1 = {
-        x: otu_ids,
-        y: sample_values,
+    let traceBar = {
+        y: otu_ids_Formatted,
+        x: sample_values,
         text: otu_labels,
         name: "Test 123",
         type: "bar",
         orientation: "h",
     };
 
-    let traceData = [trace1];
+    let traceData = [traceBar];
 
-// Apply a title to the layout
-let layout = {
-    title: "Greek gods search results",
-    margin: {
-      l: 100,
-      r: 100,
-      t: 100,
-      b: 100
-    }
-  };
+    // Apply a title to the layout
+    let layoutBar = {
+    title: `Top ${otu_ids.length} Bellybutton UTO's for Test Subject ${chosenID}`
+    };
 
-    Plotly.newPlot("bar", traceData, layout);
+    var config = {responsive: true}
+
+    Plotly.newPlot("bar", traceData, layoutBar, config);
 
 };
+
+    //////////////////
+    // BUBBLE CHART //
+    //////////////////
 
 
 /* loop through the names using for each data.names, 
