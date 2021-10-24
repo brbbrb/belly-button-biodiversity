@@ -95,7 +95,11 @@ function plotAllCharts(chosenDropdownMenu) {
 
     // Apply a title to the layout
     let layoutBar = {
-    title: `Top ${otu_ids.length} Bellybutton UTO's for Test Subject ${chosenID}`
+    title: `Top ${otu_ids.length} Bellybutton UTO's for Test Subject ${chosenID}`,
+    xaxis: {
+        title: {
+          text: 'UTO Sample Count'
+    }}
     };
 
     var config = {responsive: true}
