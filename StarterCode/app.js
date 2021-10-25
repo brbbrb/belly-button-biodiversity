@@ -60,6 +60,13 @@ function plotAllCharts(chosenDropdownMenu) {
     var chosenID_metadata = allTheData.metadata.filter(metadata => metadata.id == chosenID);
     var chosenID_samples = allTheData.samples.filter(sample => sample.id == chosenID);
 
+    // store data from chosenID sample
+    var all_otu_ids = chosenID_samples[0].otu_ids;
+    var all_sample_values = chosenID_samples[0].sample_values;
+    var all_otu_labels = chosenID_samples[0].otu_labels;
+
+    // //testing
+    // console.log(all_otu_ids);
 
     // store data from chosenID sample's top 10 values
     var otu_ids = chosenID_samples[0].otu_ids.slice(0,10).reverse();
@@ -68,16 +75,16 @@ function plotAllCharts(chosenDropdownMenu) {
 
     var otu_ids_Formatted = otu_ids.map(otuID => "OTU " + otuID + " ");
 
-    // testing
-    console.log(chosenID_metadata);
-    console.log(chosenID_samples);
+    // // testing
+    // console.log(chosenID_metadata);
+    // console.log(chosenID_samples);
     
-    // testing 
-    console.log(otu_ids);
-    console.log(sample_values);
-    console.log(otu_labels);
+    // // testing 
+    // console.log(otu_ids);
+    // console.log(sample_values);
+    // console.log(otu_labels);
 
-    console.log(otu_ids_Formatted);
+    // console.log(otu_ids_Formatted);
 
     // console.log(Object.values(otu_ids));
 
@@ -91,7 +98,7 @@ function plotAllCharts(chosenDropdownMenu) {
         orientation: "h",
     };
 
-    let traceData = [traceBar];
+    let traceData1 = [traceBar];
 
     // Apply a title to the layout
     let layoutBar = {
@@ -104,7 +111,7 @@ function plotAllCharts(chosenDropdownMenu) {
 
     var config = {responsive: true}
 
-    Plotly.newPlot("bar", traceData, layoutBar, config);
+    Plotly.newPlot("bar", traceData1, layoutBar, config);
 
 };
 
@@ -112,6 +119,26 @@ function plotAllCharts(chosenDropdownMenu) {
     // BUBBLE CHART //
     //////////////////
 
+    // let traceBubble = {
+    //     y: all_otu_ids,
+    //     x: all_sample_values,
+    //     mode: 'markers'    
+    // };
+
+    // let traceData2 = [traceBubble];
+
+    // var layoutBubble = {
+    //     title: 'Marker Size and Color',
+    //     showlegend: false,
+    //     height: 600,
+    //     width: 600
+    // };
+
+    // var config = {responsive: true}
+
+    // Plotly.newPlot("bubble", traceData2, layoutBubble, config);
+
+    
 
 /* loop through the names using for each data.names, 
         then selector.append(dropdown menu)a new option.where 
