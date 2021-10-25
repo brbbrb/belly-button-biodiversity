@@ -89,7 +89,7 @@ function plotAllCharts(chosenDropdownMenu) {
     // console.log(Object.values(otu_ids));
 
     // trace1 for bar chart
-    let traceBar = {
+    var traceBar = {
         y: otu_ids_Formatted,
         x: sample_values,
         text: otu_labels,
@@ -98,14 +98,14 @@ function plotAllCharts(chosenDropdownMenu) {
         orientation: "h",
     };
 
-    let traceData1 = [traceBar];
+    var traceData1 = [traceBar];
 
     // Apply a title to the layout
-    let layoutBar = {
+    var layoutBar = {
     title: `Top ${otu_ids.length} Bellybutton UTO's for Test Subject ${chosenID}`,
     xaxis: {
         title: {
-          text: 'UTO Sample Count'
+            text: 'UTO Sample Count'
     }}
     };
 
@@ -113,30 +113,43 @@ function plotAllCharts(chosenDropdownMenu) {
 
     Plotly.newPlot("bar", traceData1, layoutBar, config);
 
-};
-
     //////////////////
     // BUBBLE CHART //
     //////////////////
 
-    // let traceBubble = {
-    //     y: all_otu_ids,
-    //     x: all_sample_values,
-    //     mode: 'markers'    
-    // };
+    var traceBubble = {
+        x: all_otu_ids,
+        y: all_sample_values,
+        text: all_otu_labels,
+        mode: 'markers',
+        marker: {
+            color: all_otu_ids,
+            opacity: 0.8,
+            size: all_sample_values}   
+    };
 
-    // let traceData2 = [traceBubble];
+    var traceData2 = [traceBubble];
 
-    // var layoutBubble = {
-    //     title: 'Marker Size and Color',
-    //     showlegend: false,
-    //     height: 600,
-    //     width: 600
-    // };
+    var layoutBubble = {
+        title: 'Marker Size and Color',
+        showlegend: false,
+        xaxis: {
+            title: {
+                text: 'UTO ID Number'}},
+        yaxis: {
+            title: {
+                text: 'UTO Count'}}
+    };
 
-    // var config = {responsive: true}
+    var config = {responsive: true};
 
-    // Plotly.newPlot("bubble", traceData2, layoutBubble, config);
+    Plotly.newPlot("bubble", traceData2, layoutBubble, config);
+
+};
+
+
+
+    
 
     
 
