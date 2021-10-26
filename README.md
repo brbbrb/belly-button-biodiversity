@@ -8,6 +8,8 @@ The dataset reveals that a small handful of microbial species (also called opera
 
 The site allows users to select an ID from the dropdown menu to display information from an individual.
 
+FULL SITE HERE: https://brbbrb.github.io/plotly-challenge-belly-button-biodiversity/
+
 ## Plotly
 
 The challenge was to retrieve individual sample information from the dataset, and draw a bar chart and bubble chart to display the information. The following was done in order to create the displays:
@@ -41,4 +43,4 @@ Once the visualizations were complete, they could be implemented into the html p
 
 ## Deployment
 
-The final dashboard was deployed using GitHub Pages and can be viewed here: 
+The final dashboard was deployed using GitHub Pages and can be viewed here: https://brbbrb.github.io/plotly-challenge-belly-button-biodiversity/
