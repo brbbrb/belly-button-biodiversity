@@ -32,7 +32,7 @@ var chosenID;
 function init() {
 
     // use d3 library to read json file
-    d3.json('samples.json').then(function (data) {
+    d3.json('StarterCode/samples.json').then(function (data) {
         allTheData = data;
         data.names.forEach((name => {
             var option = dropdownMenu.append('option');
