@@ -10,6 +10,30 @@ Users can select a
 
 ## Step 1: Plotly
 
+The challenge was to retrieve individual sample information from the dataset, and draw a bar chart and bubble chart to display the information. The following was done in order to create the displays:
+
+* important variables from the html file were defined
+* read samples.json with the D3 library
+* retrieved metadata for each test subject and added to table, with one key-value pair for each row
+
+![metadata table](Images/demo_table.png)
+
+* stored sample data like otu_ids, sample_values, and otu_labels for later use
+  * top 10 values were stored as seperate variables for bar chart
+* 
+
+### function(init)
+
+After these variables were determined, the app reads the samples.json file using the D3 library, adds the sample names
+
+Read in samples.json using the D3 library
+
+Retrieve metadata info for each test subject and display this in the form of an unordered list item as a key-value pair on the dashboard.
+
+Get required data for plotting, including sample_values, otu_ids and otu_labels which were used to create a trace and plot the bar chart.
+
+Since the task was to only plot the top 10 values, the three arrays were sliced and reversed to display the chart as below.
+
 1. Use the D3 library to read in `samples.json`.
 
 2. Create a horizontal bar chart with a dropdown menu to display the top 10 OTUs found in that individual.
@@ -48,40 +72,9 @@ Additionally, you are welcome to create any layout that you would like for your 
 
 ![hw](Images/hw02.png)
 
-## Advanced Challenge Assignment (Optional)
-
-The following task is advanced and therefore optional.
-
-* Adapt the Gauge Chart from <https://plot.ly/javascript/gauge-charts/> to plot the weekly washing frequency of the individual.
-
-* You will need to modify the example gauge code to account for values ranging from 0 through 9.
-
-* Update the chart whenever a new sample is selected.
-
-![Weekly Washing Frequency Gauge](Images/gauge.png)
 
 ## Deployment
 
 * Deploy your app to a free static page hosting service, such as GitHub Pages. Submit the links to your deployment and your GitHub repo.
 
 * Ensure your repository has regular commits and a thorough README.md file
-
-## Hints
-
-* Use `console.log` inside of your JavaScript code to see what your data looks like at each step.
-
-* Refer to the [Plotly.js documentation](https://plot.ly/javascript/) when building the plots.
-
-## Rubric
-
-[Unit 14 Rubric - Plot.ly Homework - Belly Button Biodiversity](https://docs.google.com/document/d/1wD_hOEJELD2hifTaECfx66xlpEdJeYm3mL8q2Zoq1vo/edit?usp=sharing)
-
-- - -
-
-## References
-
-Hulcr, J. et al.(2012) _A Jungle in There: Bacteria in Belly Buttons are Highly Diverse, but Predictable_. Retrieved from: [http://robdunnlab.com/projects/belly-button-biodiversity/results-and-data/](http://robdunnlab.com/projects/belly-button-biodiversity/results-and-data/)
-
-- - -
-
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
