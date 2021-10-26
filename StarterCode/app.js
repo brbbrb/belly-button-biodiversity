@@ -51,10 +51,6 @@ function init() {
 function plotAllCharts(chosenDropdownMenu) {
     console.log(chosenDropdownMenu);
     chosenID = chosenDropdownMenu;
-    
-    ///////////////
-    // BAR CHART //
-    ///////////////
 
     // link to data based on chosenID
     var chosenID_metadata = allTheData.metadata.filter(metadata => metadata.id == chosenID);
@@ -64,6 +60,22 @@ function plotAllCharts(chosenDropdownMenu) {
     var all_otu_ids = chosenID_samples[0].otu_ids;
     var all_sample_values = chosenID_samples[0].sample_values;
     var all_otu_labels = chosenID_samples[0].otu_labels;
+
+    //////////////
+    // METADATA //
+    //////////////
+
+    for (let value of Object.values(chosenID_metadata)){
+        alert(value)
+    };
+
+    // ****THIS DID NOT Worker - try again
+
+    ///////////////
+    // BAR CHART //
+    ///////////////
+
+
 
     // //testing
     // console.log(all_otu_ids);
