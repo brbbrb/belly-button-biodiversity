@@ -4,11 +4,10 @@ var dropdownMenu = d3.select('#selDataset')
 d3.select('#selDataset').on('change', function(){
     var chosenDropdownMenu = eval(d3.select(this).property('value'));
     plotAllCharts(chosenDropdownMenu);
-    resetData();
 });
 
 // select demographic info display from html
-var demographicTable = d3.select('#sample-metadata')
+var metadataSection = d3.select('#sample-metadata')
 
 // select bar chart from html
 var barChart = d3.select('#bar')
@@ -24,7 +23,7 @@ var chosenID;
 
 // define reset data function
 // function resetData(){
-//     demographicTable.html("");
+//     metadataSection.html("")};
 //     barChart.html("");
 //     bubbleChart.html("");
 // }
@@ -40,7 +39,6 @@ function init() {
             option.text(name)
         }));
         plotAllCharts(data.names[0]);
-        resetData();
     })    
 }
 
@@ -49,11 +47,11 @@ function init() {
 
 // plot all charts
 function plotAllCharts(chosenDropdownMenu) {
-    console.log(chosenDropdownMenu);
+    // console.log(chosenDropdownMenu);
     chosenID = chosenDropdownMenu;
 
     // link to data based on chosenID
-    var chosenID_metadata = allTheData.metadata.filter(metadata => metadata.id == chosenID);
+    var chosenID_metadata = allTheData.metadata.filter(metadata => metadata.id == chosenID)[0];
     var chosenID_samples = allTheData.samples.filter(sample => sample.id == chosenID);
 
     // store data from chosenID sample
@@ -65,17 +63,23 @@ function plotAllCharts(chosenDropdownMenu) {
     // METADATA //
     //////////////
 
-    for (let value of Object.values(chosenID_metadata)){
-        alert(value)
-    };
+    // testing
+    // console.log(chosenID_metadata);
 
-    // ****THIS DID NOT Worker - try again
+    // clear metadata from previous chosen ID
+    metadataSection.html("");
+
+    // append metadata for chosen ID to table 
+    Object.entries(chosenID_metadata).forEach(([key, value]) => {
+        var metaTable = metadataSection.append("table");
+        var metaTableItem = metaTable.append("tr");
+        metaTableItem.text(`${key}: ${value}`);
+    });
+
 
     ///////////////
     // BAR CHART //
     ///////////////
-
-
 
     // //testing
     // console.log(all_otu_ids);
@@ -114,7 +118,7 @@ function plotAllCharts(chosenDropdownMenu) {
 
     // Apply a title to the layout
     var layoutBar = {
-    title: `Top ${otu_ids.length} Bellybutton UTO's for Test Subject ${chosenID}`,
+    title: `Top ${otu_ids.length} Bellybutton UTOs for Test Subject ${chosenID}`,
     xaxis: {
         title: {
             text: 'UTO Sample Count'
@@ -143,7 +147,7 @@ function plotAllCharts(chosenDropdownMenu) {
     var traceData2 = [traceBubble];
 
     var layoutBubble = {
-        title: 'Marker Size and Color',
+        title: `All ${all_otu_ids.length} Bellybutton UTOs for Test Subject ${chosenID}`,
         showlegend: false,
         xaxis: {
             title: {
@@ -159,18 +163,4 @@ function plotAllCharts(chosenDropdownMenu) {
 
 };
 
-
-
-    
-
-    
-
-/* loop through the names using for each data.names, 
-        then selector.append(dropdown menu)a new option.where 
-        text is subject id and property value is subject id
-        seperate function using d3.filter to filter "metadata" 
-        to populate demographics table add a filter statement 
-        to filter the samples */
-
 init();
-
