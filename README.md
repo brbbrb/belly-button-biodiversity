@@ -2,7 +2,10 @@
 
 This project builds an interactive dashboard to explore the [Belly Button Biodiversity dataset](http://robdunnlab.com/projects/belly-button-biodiversity/), using two Javascript libraries: Plot.ly and D3.
 
+![buttons image](https://github.com/brbbrb/plotly-challenge-belly-button-biodiversity/blob/main/images/cropped_buttons.jpeg?raw=true)
 [[images/cropped_buttons.jpeg]]
+
+![Alt text](images/cropped_buttons.jpeg?raw=true "Title")
 
 The dataset reveals that a small handful of microbial species (also called operational taxonomic units, or OTUs, in the study) were present in more than 70% of people, while the rest were relatively rare.
 
