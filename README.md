@@ -6,9 +6,9 @@ This project builds an interactive dashboard built using two Javascript librarie
 
 The dataset reveals that a small handful of microbial species (also called operational taxonomic units, or OTUs, in the study) were present in more than 70% of people, while the rest were relatively rare.
 
-Users can select a 
+The site allows users to select an ID from the dropdown menu to display information from an individual.
 
-## Step 1: Plotly
+## Plotly
 
 The challenge was to retrieve individual sample information from the dataset, and draw a bar chart and bubble chart to display the information. The following was done in order to create the displays:
 
@@ -18,63 +18,27 @@ The challenge was to retrieve individual sample information from the dataset, an
 
 ![metadata table](Images/demo_table.png)
 
-* stored sample data like otu_ids, sample_values, and otu_labels for later use
+* stored sample data like otu_ids, sample_values, and otu_labels as arrays for later use
   * top 10 values were stored as seperate variables for bar chart
-* 
+* created plot.ly displays
 
-### function(init)
+### Bar Chart
+The 3 arrays of top 10 OTU were sliced and reversed to display in descending order:
 
-After these variables were determined, the app reads the samples.json file using the D3 library, adds the sample names
+![bar chart](Images/bar_chart.png)
 
-Read in samples.json using the D3 library
+### Bubble Chart
+The 3 arrays of *all* OTU were used to plot the bubble chart:
 
-Retrieve metadata info for each test subject and display this in the form of an unordered list item as a key-value pair on the dashboard.
+![bubble chart](Images/bubble_chart.png)
 
-Get required data for plotting, including sample_values, otu_ids and otu_labels which were used to create a trace and plot the bar chart.
+## Dashboard
 
-Since the task was to only plot the top 10 values, the three arrays were sliced and reversed to display the chart as below.
+Once the visualizations were complete, they could be implemented into the html page, forming a complete dashboard:
 
-1. Use the D3 library to read in `samples.json`.
-
-2. Create a horizontal bar chart with a dropdown menu to display the top 10 OTUs found in that individual.
-
-* Use `sample_values` as the values for the bar chart.
-
-* Use `otu_ids` as the labels for the bar chart.
-
-* Use `otu_labels` as the hovertext for the chart.
-
-  ![bar Chart](Images/hw01.png)
-
-3. Create a bubble chart that displays each sample.
-
-* Use `otu_ids` for the x values.
-
-* Use `sample_values` for the y values.
-
-* Use `sample_values` for the marker size.
-
-* Use `otu_ids` for the marker colors.
-
-* Use `otu_labels` for the text values.
-
-![Bubble Chart](Images/bubble_chart.png)
-
-4. Display the sample metadata, i.e., an individual's demographic information.
-
-5. Display each key-value pair from the metadata JSON object somewhere on the page.
-
-![hw](Images/hw03.png)
-
-6. Update all of the plots any time that a new sample is selected.
-
-Additionally, you are welcome to create any layout that you would like for your dashboard. An example dashboard is shown below:
-
-![hw](Images/hw02.png)
+![dashboard full](Images/dashboard_full.png)
 
 
 ## Deployment
 
-* Deploy your app to a free static page hosting service, such as GitHub Pages. Submit the links to your deployment and your GitHub repo.
-
-* Ensure your repository has regular commits and a thorough README.md file
+The final dashboard was deployed using GitHub Pages and can be viewed here: 
