@@ -1,6 +1,6 @@
-# Plot.ly Challenge - Belly Button Biodiversity
+# Belly Button Biodiversity
 
-This project builds an interactive dashboard built using two Javascript libraries, Plot.ly and D3, that allows the user to explore the [Belly Button Biodiversity dataset](http://robdunnlab.com/projects/belly-button-biodiversity/).
+This project builds an interactive dashboard built using two Javascript libraries, Plotly and D3, that allows the user to explore the [Belly Button Biodiversity dataset](http://robdunnlab.com/projects/belly-button-biodiversity/).
 
 ![buttons](Images/cropped_buttons.jpeg)
 
@@ -8,7 +8,7 @@ The dataset reveals that a small handful of microbial species (also called opera
 
 The site allows users to select an ID from the dropdown menu to display information from an individual.
 
-FULL SITE HERE: https://brbbrb.github.io/plotly-challenge-belly-button-biodiversity/
+FULL SITE HERE: https://brbbrb.github.io/belly-button-biodiversity/
 
 ## Plotly
 
@@ -43,4 +43,4 @@ Once the visualizations were complete, they could be implemented into the html p
 
 ## Deployment
 
-The final dashboard was deployed using GitHub Pages and can be viewed here: https://brbbrb.github.io/plotly-challenge-belly-button-biodiversity/
+The final dashboard was deployed using GitHub Pages and can be viewed here: https://brbbrb.github.io/belly-button-biodiversity/
